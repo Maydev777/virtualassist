@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Vite App</title>
+  <script type="module" crossorigin src="/assets/index-0e776317.js"></script>
+  <link rel="stylesheet" href="/assets/index-56d9970a.css">
+</head>
+
+<body>
+  <script>
+    var baginfo = "This is a button that directs you to our details page"
+    var carinfo = "This button directs you to our contacts information"
+    var doorinfo = "This button leads you to our youtube channel and automatically subscribes"
+    var marketinfo = "This buttons tours you around our list of products that might catch your preference"
+    var hotelinfo = "This button navigates you to our blog site which is updated weekly"
+    var saturninfo = "This button logs you out, Bye :)"
+
+
+
+
+    function moveToButton(button) {
+      document.getElementById("info").style.display = "block"
+
+
+      // Get the position of the button.
+      const buttonRect = button.getBoundingClientRect();
+      if (button.innerText === "Contacts") {
+        document.getElementById("info").innerText = carinfo
+      } else if (button.innerText === "More") {
+        document.getElementById("info").innerText = baginfo
+      } else if (button.innerText === "Subscribe") {
+        document.getElementById("info").innerText = doorinfo
+      } else if (button.innerText === "Explore") {
+        document.getElementById("info").innerText = marketinfo
+      } else if (button.innerText === "Blogs") {
+        document.getElementById("info").innerText = hotelinfo
+      } else if (button.innerText === "Logout") {
+        document.getElementById("info").innerText = saturninfo
+      }
+
+
+      const left = buttonRect.left - 90
+      const top = buttonRect.top + 50
+
+      const left2 = buttonRect.left + 110
+      const top2 = buttonRect.top + 60
+
+
+
+
+      // Set the position of the element to the position of the button.
+      document.getElementById("cube").style.left = left + "px";
+      document.getElementById("cube").style.top = top + "px";
+
+      document.getElementById("info").style.left = left2 + "px";
+      document.getElementById("info").style.top = top2 + "px";
+
+    }
+
+
+
+  </script>
+  <div id="app" class="container">
+    <div class="buttons">
+      <button onclick="moveToButton(this)" class="btn">Contacts</button>
+      <button onclick="moveToButton(this)" class="btn">More</button>
+      <button onclick="moveToButton(this)" class="btn">Subscribe</button>
+      <button onclick="moveToButton(this)" class="btn">Explore</button>
+      <button onclick="moveToButton(this)" class="btn">Blogs</button>
+      <button onclick="moveToButton(this)" class="btn">Logout</button>
+    </div>
+
+    <canvas id="cube" class="assistant"></canvas>
+    <div id="info"></div>
+  </div>
+  
+</body>
+
+</html>
